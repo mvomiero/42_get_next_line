@@ -6,7 +6,7 @@
 /*   By: mvomiero <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:50:32 by mvomiero          #+#    #+#             */
-/*   Updated: 2022/12/26 19:22:11 by mvomiero         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:47:56 by mvomiero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static char	*extract_stash(int fd, char *buf, char *stash)
 {
-	size_t	read_value;
+	int		read_value;
 	char	*char_temp;
 
 	read_value = 1;
-	while (read_value != 0)
+	while (read_value != '\0')
 	{
-		read_value = read(fd, buf, BUFFER_SIZE + 1);
+		read_value = read(fd, buf, BUFFER_SIZE);
 		if (read_value == -1)
-			return (NULL);
+			return (0);
 		else if (read_value == 0)
 			break ;
 		buf[read_value] = '\0';
@@ -44,9 +44,9 @@ static char	*extract_line(char *line)
 	char	*stash;
 
 	pos = 0;
-	while (line[pos] != '\0' || line[pos] != '\n')
+	while (line[pos] != '\0' && line[pos] != '\n')
 		pos++;
-	if (line[pos] == '\0' || line [1] == '\n' || line[pos + 1] == '\0')
+	if (line[pos] == '\0' || line [1] == '\0' || line[pos + 1] == '\0')
 		return (0);
 	stash = ft_substr(line, pos + 1, ft_strlen(line) - pos);
 	line[pos + 1] = '\0';

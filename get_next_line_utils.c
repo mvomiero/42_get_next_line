@@ -6,7 +6,7 @@
 /*   By: mvomiero <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:50:49 by mvomiero          #+#    #+#             */
-/*   Updated: 2022/12/26 20:15:03 by mvomiero         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:19:19 by mvomiero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-
-	i = 0;
 	while (*s)
 	{
 		if (*s == (char)c)
