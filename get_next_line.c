@@ -6,7 +6,7 @@
 /*   By: mvomiero <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:50:32 by mvomiero          #+#    #+#             */
-/*   Updated: 2022/12/26 20:47:56 by mvomiero         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:09:09 by mvomiero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static char	*extract_line(char *line)
 	return (stash);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*stash;
 	char		*buf;
@@ -76,3 +76,31 @@ char *get_next_line(int fd)
 	stash = extract_line(line);
 	return (line);
 }
+
+/* 
+
+// The main to test it. You will habe to make a test.txt file as well and includ
+// the headers here below
+
+#include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
+
+int main(void)
+{
+	char	*line;
+	int		i;
+	int		fd;
+
+	fd = open("test.txt", O_RDONLY);
+
+	i = 1;
+	while (i < 4)
+	{
+		line = get_next_line(fd);
+		printf("line [%02d]: %s", i, line);
+		free(line);
+		i++;
+	}
+	close(fd);
+} */

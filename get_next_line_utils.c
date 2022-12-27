@@ -6,7 +6,7 @@
 /*   By: mvomiero <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:50:49 by mvomiero          #+#    #+#             */
-/*   Updated: 2022/12/26 20:19:19 by mvomiero         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:10:12 by mvomiero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ char	*ft_strchr(const char *s, int c)
 	while (*s)
 	{
 		if (*s == (char)c)
-			return (char *)s;
+			return ((char *)s);
 		s++;
 	}
 	if (c == '\0')
-		return (char *)s;
+		return ((char *)s);
 	return (NULL);
 }
 
@@ -50,7 +50,7 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	str[i] = '\0';
-	return(str);
+	return (str);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
